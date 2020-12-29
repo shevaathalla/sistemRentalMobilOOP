@@ -54,18 +54,19 @@ public class ControllerRental {
         String alamat = frame.getTxtPeminjaman_alamat().getText();
         String no_telp = frame.getTxtPeminjaman_telepon().getText();
         Mobil m = implMob.getCariNopol(frame.getTxtPeminjaman_mobil().getText());
-        if (!m.isStatus()) {
-            JOptionPane.showMessageDialog(null, "Mobil sedang tidak tersedia");
-        } else {
+        if (m.isStatus() != false) {
             r.setNamaCustomer(nama_customer);
             r.setNoSim(no_sim);
             r.setAlamat(alamat);
             r.setTelepon(no_telp);
             r.setMobil(m);
-
+            m.setStatus(false);
             implRen.insert(r);
             implMob.updateStatus(m.getId(), false);
+            reset();
             JOptionPane.showMessageDialog(null, "Data mobil berhasil masuk");
+        } else {
+            JOptionPane.showMessageDialog(null, "Mobil sedang tidak tersedia");
         }
     }
 }

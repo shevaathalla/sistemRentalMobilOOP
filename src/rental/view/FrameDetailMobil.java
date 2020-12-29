@@ -29,6 +29,7 @@ public class FrameDetailMobil extends javax.swing.JFrame {
         txtDetailMobil_nopol.setText(nopol);
         txtDetailMobil_tipe.setText(m.getTipe());
         spnDetailMobil_kilometer.setValue(m.getKilometer());
+        cm.tampilTableRecordMobil();
     }
 
     /**
@@ -310,5 +311,13 @@ public class FrameDetailMobil extends javax.swing.JFrame {
 
     public void setSpnDetailMobil_kilometer(javax.swing.JSpinner spnDetailMobil_kilometer) {
         this.spnDetailMobil_kilometer = spnDetailMobil_kilometer;
+    }
+
+    public javax.swing.JTable getTblDetailMobil() {
+        return tblDetailMobil;
+    }
+
+    public void setTblDetailMobil(javax.swing.JTable tblDetailMobil) {
+        this.tblDetailMobil = tblDetailMobil;
     }
 }

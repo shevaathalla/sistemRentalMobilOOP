@@ -9,11 +9,15 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import rental.dao.MobilDao;
+import rental.dao.RekapDao;
 import rental.dao.implementMobil;
+import rental.dao.implementRekap;
 import rental.model.Mobil;
+import rental.model.Rekap;
 import rental.model.tableModelMobil;
-import rental.view.FrameMain;
+import rental.model.tableModelRecordMobil;
 import rental.view.FrameDetailMobil;
+import rental.view.FrameMain;
 
 /**
  *
@@ -24,6 +28,7 @@ public class ControllerMobil {
     FrameMain frame;
     FrameDetailMobil frameDtl;
     implementMobil implMobil = new MobilDao();
+    implementRekap implRek = new RekapDao();
     List<Mobil> mob;
 
     public ControllerMobil(FrameMain frame, FrameDetailMobil frmDtl) {
@@ -36,6 +41,12 @@ public class ControllerMobil {
         mob = implMobil.getAll();
         tableModelMobil tmm = new tableModelMobil(mob);
         frame.getTblMobil().setModel(tmm);
+    }
+    public void tampilTableRecordMobil(){
+        String nopol = frameDtl.getTxtDetailMobil_nopol().getText();
+        List<Rekap> rek = implRek.getRecordMobil(nopol);
+        tableModelRecordMobil tmrm = new tableModelRecordMobil(rek);
+        frameDtl.getTblDetailMobil().setModel(tmrm);
     }
 
     public void reset() {
@@ -60,6 +71,7 @@ public class ControllerMobil {
         m.setTipe(tipe);
         m.setKilometer(kilometer);
         m.setHarga(harga);
+        m.setStatus(true);
         implMobil.insert(m);
         JOptionPane.showMessageDialog(null, "Data Mobil berhasil ditambahkan");
     }

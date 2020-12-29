@@ -15,7 +15,7 @@ public interface implementRental {
     public void insert(Rental rent);
     public void delete(int id);
     
-    public List<Rental> getAll();
+    public List<Rental> getAll();    
     public Rental cariKode(String kode);
     public Rental cariId(int id);
     public void updateStatus(int id,boolean status);

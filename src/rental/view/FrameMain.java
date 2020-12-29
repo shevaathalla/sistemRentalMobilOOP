@@ -679,8 +679,7 @@ public class FrameMain extends javax.swing.JFrame {
     private void btnPeminjaman_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeminjaman_saveActionPerformed
         try {
             cr.insertRental();            
-            cr.tampilTable();
-            cr.reset();
+            cr.tampilTable();            
         } catch (Exception e) {
             e.printStackTrace();
         }

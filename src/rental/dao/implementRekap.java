@@ -19,4 +19,5 @@ public interface implementRekap {
     public void delete(int id);
     
     public List<Rekap> getAll();
+    public List<Rekap> getRecordMobil(String nopol);
 }

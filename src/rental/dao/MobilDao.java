@@ -138,6 +138,7 @@ public class MobilDao implements implementMobil {
                 m.setTipe(rs.getString("tipe"));
                 m.setKilometer(rs.getInt("kilometer"));
                 m.setHarga(rs.getInt("harga"));
+                m.setStatus(rs.getBoolean("status"));
             }else{
                 JOptionPane.showMessageDialog(null, "Data tidak ada");
             }
@@ -187,6 +188,7 @@ public class MobilDao implements implementMobil {
                 m.setTipe(rs.getString("tipe"));
                 m.setKilometer(rs.getInt("kilometer"));
                 m.setHarga(rs.getInt("harga"));
+                m.setStatus(rs.getBoolean("status"));
             }
         } catch (Exception e) {
             e.printStackTrace();
